@@ -7,9 +7,9 @@ import Loop from './ui/Loop';
 
 const LEGION = [
   { img: 'legion-01', loop: 'legion-wall' },
-  { img: 'legion-02' },
-  { img: 'legion-04' },
-  { img: 'transmission-02' },
+  { img: 'legion-02', loop: 'legion-02-loop' },
+  { img: 'legion-04', loop: 'legion-04-loop' },
+  { img: 'transmission-02', loop: 'tx-02-loop' },
 ];
 
 export default function Legion() {
@@ -40,9 +40,8 @@ export default function Legion() {
           <Reveal delay={90} className="legion__body measure">
             <p>
               Every holder gets the same helmet. No tiered art, no rarity ladder,
-              nobody's dog is worth more than yours. The armour is a uniform on
-              purpose: a legion only works because the figure beside you is
-              carrying the identical shield.
+              nobody’s dog is worth more than yours. The armour is a uniform on
+              purpose.
             </p>
             <p className="mono legion__meta">
               REFERENCE SHEET · FRONT / REAR / THREE-QUARTER · V3
@@ -56,8 +55,6 @@ export default function Legion() {
           name="legion-sheet"
           ratio="1366 / 768"
           alt="Character reference sheet: front, rear and three-quarter views"
-          left="MODEL SHEET · I MARTIA"
-          right="ISSUE V3"
         />
       </Reveal>
 

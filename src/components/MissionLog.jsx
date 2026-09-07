@@ -1,5 +1,5 @@
 import Reveal from './ui/Reveal';
-import Img from './ui/Img';
+import Loop from './ui/Loop';
 import { MISSION_LOG } from '../data/site';
 
 export default function MissionLog() {
@@ -27,7 +27,7 @@ export default function MissionLog() {
               </div>
 
               <div className="log__thumb">
-                <Img name={e.img} alt={e.title} ratio="1 / 1" />
+                <Loop name={`${e.img}-loop`} poster={e.img} alt={e.title} ratio="1 / 1" />
               </div>
             </Reveal>
           ))}

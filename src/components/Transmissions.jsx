@@ -6,17 +6,17 @@ import Loop from './ui/Loop';
    Roughly every third cell moves, which reads as a live feed rather than a
    gallery without asking the visitor to download eight videos. */
 const FRAMES = [
-  { img: 'transmission-01', tall: true },
-  { img: 'transmission-02', tall: true },
+  { img: 'transmission-01', loop: 'tx-01-loop', tall: true },
+  { img: 'transmission-02', loop: 'tx-02-loop', tall: true },
   { img: 'transmission-04', loop: 'tx-console' },
   { img: 'starship-landing', loop: 'starship-loop' },
-  { img: 'transmission-03', tall: true },
+  { img: 'transmission-03', loop: 'tx-03-loop', tall: true },
   { img: 'slab-tile-2', tall: true },
   { img: 'transmission-05', loop: 'tx-rover' },
-  { img: 'robots-marvin' },
+  { img: 'robots-marvin', loop: 'robots-loop' },
   { img: 'owner-console', loop: 'owner-console-loop' },
   { img: 'legion-03', tall: true },
-  { img: 'transmission-06' },
+  { img: 'transmission-06', loop: 'tx-06-loop' },
   { img: 'plate-archive-alt', tall: true },
 ];
 

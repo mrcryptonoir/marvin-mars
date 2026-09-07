@@ -45,11 +45,10 @@ export default function Footer() {
 
       <div className="wrap footer__legal">
         <p>
-          MARVIN is an independent community meme token. It is not affiliated with,
+          MARVIN is an independent community meme token, not affiliated with,
           endorsed by, or issued by Robinhood Markets, SpaceX, Tesla, or any person
           referenced on this page. Nothing here is financial advice or an offer of a
-          security. Crypto assets are volatile and you can lose the whole position.
-          Do your own research and only risk money you can afford to lose.
+          security. Do your own research and only risk what you can afford to lose.
         </p>
         <p className="mono">© {new Date().getFullYear()} MARVIN · LEGIO I MARTIA</p>
       </div>

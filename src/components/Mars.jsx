@@ -1,6 +1,5 @@
 import Reveal from './ui/Reveal';
 import Loop from './ui/Loop';
-import Img from './ui/Img';
 import { MARS_FIGURES } from '../data/site';
 
 export default function Mars() {
@@ -36,10 +35,10 @@ export default function Mars() {
               million a tonne.
             </p>
             <p>
-              That is not a knock. The vehicle got built while the date moved.
-              Earth and Mars only line up for a cheap crossing about every 26
-              months, so losing one window costs two years, and the hard part was
-              never the rocket. It is refuelling one in orbit.
+              The vehicle got built while the date moved. Earth and Mars line up
+              for a cheap crossing only about every 26 months, so losing a window
+              costs two years. The hard part was never the rocket, it is
+              refuelling one in orbit.
             </p>
           </Reveal>
         </div>
@@ -60,9 +59,6 @@ export default function Mars() {
             ratio="16 / 9"
             alt="A man and a small armoured dog watching a rocket vent on the pad"
           />
-          <p className="mars__caption mono">
-            The man who owns the dog has been at this since 2002. Longest hold in the game.
-          </p>
         </Reveal>
 
         <div className="mars__split">
@@ -81,16 +77,14 @@ export default function Mars() {
               Optimus robots. Musk put the odds of making it at 50/50.
             </p>
             <p>
-              Fifty-fifty is the honest number, and it is exactly why a dog in a
-              Roman helmet is the right mascot for it. The ambition is real. The
-              timeline is a running joke. Anyone who has held a bag through a
-              nine-month accumulation already understands that both can be true
-              at once.
+              Fifty-fifty is an honest number, which is why a dog in a Roman
+              helmet fits. The ambition is real and the timeline is a running
+              joke. Anyone who has held a bag through a nine-month accumulation
+              knows both can be true at once.
             </p>
             <p className="mono mars__note">
-              Every figure here comes from SpaceX or from Musk in public. None of
-              it is ours, and none of it is a promise anyone can make on their
-              behalf.
+              Every figure here comes from SpaceX or Musk in public. None of it
+              is a promise anyone can make on their behalf.
             </p>
           </Reveal>
         </div>
@@ -103,7 +97,7 @@ export default function Mars() {
             <Loop name="colony-loop" poster="colony-dome" ratio="16 / 9" alt="An early Mars settlement at dusk" />
           </Reveal>
           <Reveal className="mars__cell mars__cell--tall" delay={140}>
-            <Img name="starship-window" alt="Marvin at a spacecraft window, looking at Mars" ratio="3 / 4" />
+            <Loop name="starship-window-loop" poster="starship-window" alt="Marvin at a spacecraft window, looking at Mars" ratio="3 / 4" />
           </Reveal>
         </div>
       </div>

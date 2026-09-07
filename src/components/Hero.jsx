@@ -86,8 +86,8 @@ export default function Hero() {
 
         <div className="hero__foot">
           <p className="hero__lede">
-            A small black dog in a Roman helmet, owned by the man trying hardest
-            to leave this planet. Fixed supply, no presale, no adults in the room.
+            Elon Musk’s dog, in a Roman helmet. Fixed supply, no presale, no
+            adults in the room.
           </p>
           <div className="hero__actions">
             <a className="btn btn--neon" href={LINKS.buy}>Buy $MARVIN</a>

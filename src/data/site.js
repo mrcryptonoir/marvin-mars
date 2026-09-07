@@ -49,13 +49,13 @@ export const CHAIN_SPECS = [
     k: '02',
     label: 'Gas token',
     value: 'ETH',
-    body: 'Fees are paid in ETH. No separate gas coin to buy first, which is one fewer thing standing between you and the swap.',
+    body: 'Fees are paid in ETH. There is no separate gas coin to buy first.',
   },
   {
     k: '03',
     label: 'What that means here',
     value: 'Nothing special',
-    body: 'The chain does not know what a dog is. It settles a meme exactly the way it settles a tokenized share of NVIDIA. That is the whole joke.',
+    body: 'The chain does not know what a dog is. It settles a meme the same way it settles a tokenized share of NVIDIA.',
   },
 ];
 
@@ -71,14 +71,14 @@ export const MISSION_LOG = [
     sol: 'SOL 014',
     title: 'Transfer orbit',
     status: 'COMPLETE',
-    body: 'Listings, charts, the first thousand wallets. Long, quiet and mostly sideways. Coasting is the part nobody screenshots.',
+    body: 'Listings, charts, the first thousand wallets. Coasting is the part nobody screenshots.',
     img: 'sol-02',
   },
   {
     sol: 'SOL 077',
     title: 'Descent',
     status: 'ACTIVE',
-    body: 'Stickers, shorts, and enough art that the dog can carry a timeline on his own. The helmet does the work. We just keep drawing it.',
+    body: 'Stickers, shorts, and enough art that the dog can carry a timeline on his own. The helmet does the work.',
     img: 'sol-03',
   },
   {
@@ -94,7 +94,7 @@ export const BUY_STEPS = [
   {
     n: '01',
     title: 'Add the network',
-    body: 'Any EVM wallet works. Add Robinhood Chain and keep a little ETH on it, because ETH is what pays the gas.',
+    body: 'Any EVM wallet works. Add Robinhood Chain and keep a little ETH on it for gas.',
   },
   {
     n: '02',
@@ -116,7 +116,7 @@ export const BUY_STEPS = [
 export const FAQ = [
   {
     q: 'Is this affiliated with Elon Musk or SpaceX?',
-    a: 'No. Marvin is his dog and the rocket is his company, and neither he nor SpaceX nor Tesla has anything to do with this token. Nobody asked him and nobody told him. If he ever says a word about it you will hear it from him, not from us.',
+    a: 'No. Marvin is his dog and the rocket is his company. Neither he nor SpaceX nor Tesla has anything to do with this token, and nobody asked him.',
   },
   {
     q: 'Is this affiliated with Robinhood?',
@@ -124,14 +124,14 @@ export const FAQ = [
   },
   {
     q: 'So what is it, actually?',
-    a: 'A meme coin about a dog in a Roman helmet. No yield, no revenue, no product, no promise of a return. People hold it because they like the dog and they like where he is pointed. That is the entire pitch, and it is not hiding anything behind a whitepaper.',
+    a: 'A meme coin about a dog in a Roman helmet. No yield, no revenue, no product, no promise of a return. People hold it because they like the dog and where he is pointed. That is the entire pitch.',
   },
   {
     q: 'Why the helmet?',
-    a: 'Because a small black dog belonging to the man trying hardest to get to Mars is already most of a joke, and Marvin the Martian has been threatening to blow up the Earth since 1948. The costume wrote itself.',
+    a: 'Because Elon’s dog is called Marvin, and so is the cartoon Martian who has been trying to blow up the Earth since 1948. The costume wrote itself.',
   },
   {
     q: 'What can go wrong?',
-    a: 'Most of it. Meme coins go to zero as a matter of routine, liquidity can vanish in an afternoon, and a chain this young has fewer eyes on it than Ethereum does. Only send what you would shrug at losing. The shrug is the actual risk model here.',
+    a: 'Most of it. Meme coins go to zero as a matter of routine, liquidity can vanish in an afternoon, and a chain this young has fewer eyes on it than Ethereum. Only send what you would shrug at losing.',
   },
 ];

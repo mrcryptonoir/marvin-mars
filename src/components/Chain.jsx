@@ -20,9 +20,8 @@ export default function Chain() {
           <Reveal delay={90} className="chain__lede measure-wide">
             <p>
               Three lines, then we go back to the dog. Robinhood Chain is a
-              layer 2 a brokerage built for tokenized stocks, it settles to
-              Ethereum, and it charges gas in ETH. Marvin lives there because
-              that is where a joke about real assets belongs.
+              layer 2 a brokerage built for tokenized stocks. It settles to
+              Ethereum and charges gas in ETH.
             </p>
           </Reveal>
         </div>
@@ -40,10 +39,6 @@ export default function Chain() {
 
         <Reveal delay={60} className="chain__schematic">
           <Img name="chain-schematic" alt="Transfer-orbit schematic between two worlds" ratio="16 / 9" />
-          <div className="chain__schematic-ticks" aria-hidden="true">
-            <span>ETHEREUM · SETTLEMENT</span>
-            <span>ROBINHOOD CHAIN · L2</span>
-          </div>
         </Reveal>
       </div>
     </section>

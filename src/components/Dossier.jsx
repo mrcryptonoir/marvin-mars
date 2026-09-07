@@ -20,24 +20,20 @@ export default function Dossier() {
 
             <Reveal delay={90} className="dossier__body measure">
               <p>
-                Marvin is a small scruffy black-and-white dog with floppy ears, a
-                white chest blaze and a striped bow tie. He belongs to Elon Musk.
-                That is the whole reason anyone outside that house has ever seen a
-                photo of him, and it is also the reason he ended up here.
+                Marvin is a scruffy black-and-white dog with floppy ears and a bow
+                tie. He belongs to Elon Musk, which is the only reason anyone
+                outside that house has ever seen a photo of him.
               </p>
               <p>
-                His owner has spent twenty years building a rocket around one
-                argument: that people should not stay on a single planet. So the
-                internet did the obvious thing and put a helmet on the dog. Roman,
-                domed, gold-crested, the same silhouette as the cartoon Martian who
-                has been threatening to blow up the Earth since 1948. Nobody
-                designed the joke. It just fit.
+                Musk has spent twenty years building a rocket around one argument:
+                people should not stay on a single planet. So the internet put a
+                helmet on his dog. Roman, domed, gold-crested, the same silhouette
+                as the cartoon Martian who shares the dog’s name.
               </p>
               <p>
-                Then the timing did the rest. The Mars transfer window opened in
-                November, the chain went live in July, and a dog who has never
-                left Earth got a legion, a helmet and a ticker. He does not know
-                about any of it. He is asleep on a rug somewhere.
+                The transfer window opened in November, the chain went live in
+                July, and a dog who has never left Earth got a legion and a
+                ticker.
               </p>
             </Reveal>
 
@@ -67,26 +63,22 @@ export default function Dossier() {
                 name="plate-archive"
                 ratio="4 / 3"
                 alt="Archive photograph of the subject before the mission"
-                left="ARCHIVE 001"
-                right="PRE-FLIGHT · EARTH"
               />
             </Reveal>
             <Reveal delay={160}>
               <Plate
                 name="plate-portrait"
+                loop="plate-portrait-loop"
                 ratio="3 / 4"
                 alt="The subject in legionary armour"
-                left="ARCHIVE 002"
-                right="I MARTIA · SOL 001"
               />
             </Reveal>
             <Reveal delay={220}>
               <Plate
                 name="owner-dog"
+                loop="owner-dog-loop"
                 ratio="3 / 4"
                 alt="The dog's owner crouched down, scratching his ear"
-                left="ARCHIVE 003"
-                right="THE OWNER · EARTH"
               />
             </Reveal>
           </div>

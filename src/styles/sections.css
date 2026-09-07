@@ -349,19 +349,6 @@
   margin-bottom: clamp(46px, 6vw, 84px);
 }
 .chain__schematic img { width: 100%; object-fit: cover; }
-.chain__schematic-ticks {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 12px 16px;
-  border-top: 1px solid var(--rule);
-  font-family: var(--f-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(204, 255, 0, 0.6);
-  flex-wrap: wrap;
-}
 
 .chain__grid {
   display: grid;
@@ -738,7 +725,6 @@
   .footer__cols { grid-template-columns: 1fr; }
   .footer__meta { grid-column: span 1; }
   .hero__foot { align-items: flex-start; }
-  .chain__schematic-ticks { font-size: 8.5px; }
 }
 
 /* ----------------------------------------------------------- VIDEO LOOP --- */
@@ -852,10 +838,5 @@
 
 .mars__owner { margin-bottom: clamp(40px, 5vw, 70px); }
 .mars__owner .loop { border: 1px solid var(--rule); }
-.mars__caption {
-  margin: 12px 0 0;
-  color: rgba(237, 234, 227, 0.38);
-  text-align: right;
-}
 .dossier__col--plates { grid-template-columns: 1fr; }
 .dossier__col--plates .plate:nth-child(3) { margin-right: clamp(0px, 10vw, 120px); }

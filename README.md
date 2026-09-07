@@ -33,7 +33,7 @@ npm run preview
 
 ## Motion
 
-`public/video/` holds thirteen six-second loops, generated from the matching
+`public/video/` holds twenty-seven six-second loops, generated from the matching
 still with Grok and re-encoded muted, without audio or cover art, at CRF 30.
 `src/components/ui/Loop.jsx` paints the still first and only fetches the clip
 once the element is near the viewport, then pauses it again on the way out, so
