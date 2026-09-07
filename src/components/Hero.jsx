@@ -75,7 +75,7 @@ export default function Hero() {
 
       <div className="hero__body wrap" ref={body}>
         <p className="hero__eyebrow mono">
-          <span className="hero__dot" /> Robinhood Chain · Arbitrum Orbit L2
+          <span className="hero__dot" /> Elon's dog · Legio I Martia · Robinhood Chain
         </p>
 
         <h1 className="hero__title display">
@@ -86,7 +86,8 @@ export default function Hero() {
 
         <div className="hero__foot">
           <p className="hero__lede">
-            Elon’s dog in a Roman helmet, on the layer 2 where tokenized stocks settle.
+            A small black dog in a Roman helmet, owned by the man trying hardest
+            to leave this planet. Fixed supply, no presale, no adults in the room.
           </p>
           <div className="hero__actions">
             <a className="btn btn--neon" href={LINKS.buy}>Buy $MARVIN</a>

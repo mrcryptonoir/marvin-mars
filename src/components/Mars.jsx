@@ -61,7 +61,7 @@ export default function Mars() {
             alt="A man and a small armoured dog watching a rocket vent on the pad"
           />
           <p className="mars__caption mono">
-            The man who owns the dog has been at this since 2002.
+            The man who owns the dog has been at this since 2002. Longest hold in the game.
           </p>
         </Reveal>
 
@@ -81,10 +81,11 @@ export default function Mars() {
               Optimus robots. Musk put the odds of making it at 50/50.
             </p>
             <p>
-              That is the honest number, and it is why a dog in a Roman helmet is
-              a reasonable mascot for the whole thing. The ambition is real, the
-              timeline is a running joke, and the internet worked out years ago
-              that both can be true at once.
+              Fifty-fifty is the honest number, and it is exactly why a dog in a
+              Roman helmet is the right mascot for it. The ambition is real. The
+              timeline is a running joke. Anyone who has held a bag through a
+              nine-month accumulation already understands that both can be true
+              at once.
             </p>
             <p className="mono mars__note">
               Every figure here comes from SpaceX or from Musk in public. None of

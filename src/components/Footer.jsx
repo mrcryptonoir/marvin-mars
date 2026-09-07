@@ -13,9 +13,9 @@ export default function Footer() {
       <div className="wrap footer__inner">
         <Reveal>
           <p className="footer__line display">
-            Nobody planned any of this.
+            He has no idea
             <br />
-            <em>the helmet</em> stuck.
+            <em>any of this</em> happened.
           </p>
         </Reveal>
 

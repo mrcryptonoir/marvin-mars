@@ -22,13 +22,13 @@ import './styles/sections.css';
 const SLAB_A = [
   [{ t: 'A DOG' }, { img: 'slab-tile-1' }, { t: 'IN A' }],
   [{ t: 'ROMAN' }, { img: 'slab-tile-3' }, { t: 'HELMET' }],
-  [{ t: 'ON A REAL' }, { img: 'slab-tile-2' }, { t: 'CHAIN' }],
+  [{ t: 'POINTED AT' }, { img: 'slab-tile-2' }, { t: 'MARS' }],
 ];
 
 const SLAB_B = [
-  [{ t: 'ONE HUNDRED' }, { img: 'sol-04' }, { t: 'MILLISECONDS' }],
-  [{ t: 'A BLOCK.' }, { img: 'transmission-02' }, { t: 'GAS' }],
-  [{ t: 'PAID IN' }, { img: 'legion-04' }, { t: 'ETH.' }],
+  [{ t: 'THE ROCKET' }, { img: 'spacex-launch' }, { t: 'IS REAL.' }],
+  [{ t: 'THE DOG' }, { img: 'plate-archive' }, { t: 'IS REAL.' }],
+  [{ t: 'THE REST' }, { img: 'legion-04' }, { t: 'IS US.' }],
 ];
 
 export default function App() {
@@ -73,11 +73,11 @@ export default function App() {
         <Hero />
         <Marquee />
         <Dossier />
-        <Slab lines={SLAB_A} invert note="FIG. 1 · SUBJECT, COSTUME, VENUE" />
+        <Slab lines={SLAB_A} invert note="FIG. 1 · SUBJECT, COSTUME, HEADING" />
         <Mars />
         <Chain />
         <Legion />
-        <Slab lines={SLAB_B} note="FIG. 2 · SPEC SHEET, SHOUTED" />
+        <Slab lines={SLAB_B} note="FIG. 2 · THE ONLY THREE FACTS THAT MATTER" />
         <MissionLog />
         <Supply />
         <Transmissions />
@@ -85,7 +85,7 @@ export default function App() {
         <Faq />
       </main>
 
-      <Marquee items={['$MARVIN', 'LEGIO I MARTIA', 'ROBINHOOD CHAIN', 'FIXED SUPPLY', 'NO PRESALE']} speed={30} />
+      <Marquee items={['$MARVIN', 'LEGIO I MARTIA', 'GOOD BOY', 'FIXED SUPPLY', 'NO PRESALE', 'SEE YOU ON MARS']} speed={30} />
       <Footer />
     </>
   );

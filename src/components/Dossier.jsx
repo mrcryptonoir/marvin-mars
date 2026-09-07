@@ -20,23 +20,24 @@ export default function Dossier() {
 
             <Reveal delay={90} className="dossier__body measure">
               <p>
-                Marvin is a scruffy black-and-white dog with floppy ears and a bow
-                tie. He belongs to Elon Musk, who spends his working hours arguing
-                that people should not stay on one planet and has spent twenty
-                years building the rocket to prove it. That is the only reason
-                anyone outside that house has ever seen a photo of the dog.
+                Marvin is a small scruffy black-and-white dog with floppy ears, a
+                white chest blaze and a striped bow tie. He belongs to Elon Musk.
+                That is the whole reason anyone outside that house has ever seen a
+                photo of him, and it is also the reason he ended up here.
               </p>
               <p>
-                The internet did the obvious thing and put a helmet on him. Roman,
-                domed, gold-crested: the same silhouette as the cartoon Martian who
+                His owner has spent twenty years building a rocket around one
+                argument: that people should not stay on a single planet. So the
+                internet did the obvious thing and put a helmet on the dog. Roman,
+                domed, gold-crested, the same silhouette as the cartoon Martian who
                 has been threatening to blow up the Earth since 1948. Nobody
                 designed the joke. It just fit.
               </p>
               <p>
-                It landed at a useful moment. Robinhood Chain went live for
-                tokenized stocks in July 2026, three months before the Mars
-                transfer window opened, and a meme on rails people actually use is
-                worth more than a meme on rails nobody does.
+                Then the timing did the rest. The Mars transfer window opened in
+                November, the chain went live in July, and a dog who has never
+                left Earth got a legion, a helmet and a ticker. He does not know
+                about any of it. He is asleep on a rug somewhere.
               </p>
             </Reveal>
 

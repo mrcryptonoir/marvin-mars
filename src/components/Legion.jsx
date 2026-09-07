@@ -39,9 +39,10 @@ export default function Legion() {
           </Reveal>
           <Reveal delay={90} className="legion__body measure">
             <p>
-              Every holder gets the same helmet. There is no tiered art and no
-              rarity ladder. The armour is a uniform on purpose: a legion works
-              because the figure beside you is carrying the same shield.
+              Every holder gets the same helmet. No tiered art, no rarity ladder,
+              nobody's dog is worth more than yours. The armour is a uniform on
+              purpose: a legion only works because the figure beside you is
+              carrying the identical shield.
             </p>
             <p className="mono legion__meta">
               REFERENCE SHEET · FRONT / REAR / THREE-QUARTER · V3
