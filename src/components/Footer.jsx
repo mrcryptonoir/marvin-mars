@@ -6,16 +6,16 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__bleed">
-        <Img name="footer-bleed" alt="Paw prints leading away across the Martian plain at night" ratio="21 / 9" />
+        <Img name="footer-bleed" alt="" ratio="21 / 9" />
         <div className="footer__bleed-scrim" />
       </div>
 
       <div className="wrap footer__inner">
         <Reveal>
-          <p className="footer__line serif-display">
-            He is four hundred metres from the lander
+          <p className="footer__line display">
+            Nobody planned any of this.
             <br />
-            and he has <em>no intention</em> of turning round.
+            <em>the helmet</em> stuck.
           </p>
         </Reveal>
 
@@ -46,10 +46,10 @@ export default function Footer() {
       <div className="wrap footer__legal">
         <p>
           MARVIN is an independent community meme token. It is not affiliated with,
-          endorsed by, or issued by Robinhood Markets, SpaceX, Tesla, or any individual
-          referenced on this page. Nothing here is financial advice or an offer of any
-          security. Crypto assets are volatile and you can lose everything you put in.
-          Do your own research and never risk money you need.
+          endorsed by, or issued by Robinhood Markets, SpaceX, Tesla, or any person
+          referenced on this page. Nothing here is financial advice or an offer of a
+          security. Crypto assets are volatile and you can lose the whole position.
+          Do your own research and only risk money you can afford to lose.
         </p>
         <p className="mono">© {new Date().getFullYear()} MARVIN · LEGIO I MARTIA</p>
       </div>

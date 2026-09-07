@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
  * One shared scroll sweep instead of an observer per element.
  *
  * IntersectionObserver drops entries when the page is scrolled fast enough that
- * an element crosses the viewport between two delivery ticks — an anchor jump,
+ * an element crosses the viewport between two delivery ticks: an anchor jump,
  * a flung trackpad, a restored scroll position. Anything it missed stayed at
  * opacity 0 forever, which hides real content. A geometry check on every scroll
  * frame cannot miss: an element that has passed the trigger line is revealed

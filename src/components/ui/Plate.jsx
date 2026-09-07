@@ -1,21 +1,11 @@
 import Img from './Img';
 
-/** An image dressed as an instrument readout: corner ticks, crosshair, mono caption rail. */
-export default function Plate({
-  name,
-  alt,
-  ratio = '4 / 3',
-  left,
-  right,
-  cross = true,
-  className = '',
-  eager = false,
-}) {
+/** An image dressed as an instrument readout: corner ticks and a mono caption rail. */
+export default function Plate({ name, alt, ratio = '4 / 3', left, right, className = '' }) {
   return (
     <figure className={`plate ${className}`} style={{ margin: 0 }}>
       <div className="plate__frame" style={{ aspectRatio: ratio }}>
-        <Img name={name} alt={alt} eager={eager} />
-        {cross && <div className="plate__cross" />}
+        <Img name={name} alt={alt} />
         <div className="plate__ticks">
           <span /><span /><span /><span />
         </div>

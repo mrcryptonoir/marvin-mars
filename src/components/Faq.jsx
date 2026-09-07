@@ -9,7 +9,7 @@ export default function Faq() {
     <section className="sec sec--tight faq" id="faq">
       <div className="wrap">
         <div className="sec-head">
-          <Reveal className="label">Appendix — Plain answers</Reveal>
+          <Reveal className="label">Appendix / Plain answers</Reveal>
           <Reveal className="sec-head__n" delay={80}>NO SMALL PRINT</Reveal>
         </div>
 

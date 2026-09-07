@@ -6,37 +6,35 @@ export default function Dossier() {
     <section className="sec dossier" id="dossier">
       <div className="wrap">
         <div className="sec-head">
-          <Reveal className="label">Chapter I — Subject</Reveal>
-          <Reveal className="sec-head__n" delay={80}>FILE 001 / MARVIN</Reveal>
+          <Reveal className="label">Chapter I / Subject</Reveal>
+          <Reveal className="sec-head__n" delay={80}>FILE 001 · MARVIN</Reveal>
         </div>
 
         <div className="dossier__grid">
           <div className="dossier__col">
             <Reveal>
-              <h2 className="dossier__h serif-display">
-                A small black dog with a <em>ridiculous</em> amount of sky above him.
+              <h2 className="dossier__h display">
+                The dog <em>before</em> the helmet
               </h2>
             </Reveal>
 
             <Reveal delay={90} className="dossier__body measure">
               <p>
-                <strong>MARVIN WAS NEVER SUPPOSED TO MATTER.</strong> He is a scruffy
-                black-and-white thing with floppy ears and a bow tie, the kind of dog
-                that gets photographed on a factory floor and posted once and forgotten.
-                He belongs to a man who spends his working hours arguing that humanity
-                should not stay on one planet.
+                Marvin is a scruffy black-and-white dog with floppy ears and a bow
+                tie. He belongs to a man who spends his working hours arguing that
+                people should not stay on one planet, which is the only reason
+                anyone outside that house has ever seen a photo of him.
               </p>
               <p>
-                The internet, being what it is, did the obvious thing. It put a helmet
-                on him. Roman, domed, gold-crested — the exact silhouette of a cartoon
-                Martian who has been threatening to blow up the Earth since 1948. Then
-                it pointed him at the sky and waited.
+                The internet did the obvious thing and put a helmet on him. Roman,
+                domed, gold-crested: the same silhouette as the cartoon Martian who
+                has been threatening to blow up the Earth since 1948. Nobody
+                designed the joke. It just fit.
               </p>
               <p>
-                What follows is not a joke about a dog. It is a joke about a dog that
-                arrived at the same time as a settlement layer for tokenized equities,
-                on a network fast enough to make the joke land before you finished
-                reading it. Timing is the only thing a meme actually owns.
+                It landed at a useful moment. Robinhood Chain went live for
+                tokenized stocks in July 2026, and a meme on rails people actually
+                use is worth more than a meme on rails nobody does.
               </p>
             </Reveal>
 

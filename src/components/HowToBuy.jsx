@@ -6,13 +6,13 @@ export default function HowToBuy() {
     <section className="sec buy" id="buy">
       <div className="wrap">
         <div className="sec-head">
-          <Reveal className="label">Chapter VII — Boarding</Reveal>
-          <Reveal className="sec-head__n" delay={80}>FOUR STEPS / NO CREW REQUIRED</Reveal>
+          <Reveal className="label">Chapter VII / Boarding</Reveal>
+          <Reveal className="sec-head__n" delay={80}>FOUR STEPS · NO CREW REQUIRED</Reveal>
         </div>
 
         <Reveal>
-          <h2 className="buy__h serif-display">
-            Getting on is <em>easier</em> than getting there.
+          <h2 className="buy__h display">
+            Getting on is <em>easier</em> than getting there
           </h2>
         </Reveal>
 

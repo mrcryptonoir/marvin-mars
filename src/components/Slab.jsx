@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
+import { useScrollPass, lerp } from '../lib/scroll';
 import Img from './ui/Img';
 
 /** Drift reads as motion on a wide screen and as clipping on a narrow one. */
@@ -18,14 +18,21 @@ function useDriftAllowed() {
 }
 
 /**
- * Sadu-style type wall: enormous condensed lines with square media set into the
- * letter gaps, each line drifting a different distance as the section passes.
+ * Type wall: enormous condensed lines with square media set into the letter
+ * gaps, each line drifting a different distance as the section passes.
  */
 export default function Slab({ lines, invert = false, note, id }) {
-  const ref = useRef(null);
-  const reduce = useReducedMotion();
   const drift = useDriftAllowed();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const els = useRef([]);
+
+  const ref = useScrollPass((p) => {
+    els.current.forEach((el, i) => {
+      if (!el) return;
+      const dir = i % 2 === 0 ? -1 : 1;
+      const amount = dir * (70 + i * 26);
+      el.style.transform = `translate3d(${lerp(p, amount, -amount)}px, 0, 0)`;
+    });
+  }, drift);
 
   return (
     <section
@@ -35,36 +42,24 @@ export default function Slab({ lines, invert = false, note, id }) {
     >
       <div className="slabwall__inner">
         {lines.map((parts, li) => (
-          <Line
+          <div
+            className="slabwall__line slab"
             key={li}
-            parts={parts}
-            index={li}
-            progress={scrollYProgress}
-            still={reduce || !drift}
-          />
+            ref={(el) => { els.current[li] = el; }}
+          >
+            {parts.map((p, i) =>
+              p.img ? (
+                <span className="slabwall__tile" key={i}>
+                  <Img name={p.img} alt="" />
+                </span>
+              ) : (
+                <span key={i}>{p.t}</span>
+              )
+            )}
+          </div>
         ))}
       </div>
       {note && <p className="slabwall__note mono">{note}</p>}
     </section>
-  );
-}
-
-function Line({ parts, index, progress, still }) {
-  const dir = index % 2 === 0 ? -1 : 1;
-  const amount = still ? 0 : 70 + index * 26;
-  const x = useTransform(progress, [0, 1], [`${dir * amount}px`, `${-dir * amount}px`]);
-
-  return (
-    <motion.div className="slabwall__line slab" style={{ x }}>
-      {parts.map((p, i) =>
-        p.img ? (
-          <span className="slabwall__tile" key={i}>
-            <Img name={p.img} alt="" ratio="1 / 1" />
-          </span>
-        ) : (
-          <span key={i}>{p.t}</span>
-        )
-      )}
-    </motion.div>
   );
 }

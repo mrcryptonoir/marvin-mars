@@ -90,7 +90,7 @@
   transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
 }
 .nav__sheet.is-open { opacity: 1; pointer-events: auto; transform: none; }
-.nav__sheet a.serif-display { font-size: clamp(38px, 11vw, 68px); }
+.nav__sheet a.display { font-size: clamp(46px, 14vw, 92px); }
 .nav__sheet .btn { align-self: flex-start; margin-top: 26px; }
 
 .nav__progress {
@@ -186,10 +186,10 @@
 
 .hero__title {
   margin: 0;
-  font-size: clamp(44px, 8.2vw, 136px);
+  font-size: clamp(58px, 11.5vw, 196px);
   text-shadow: 0 8px 60px rgba(0, 0, 0, 0.75);
 }
-.hero__title em { color: var(--bone-2); }
+.hero__title em { color: var(--neon); }
 
 .hero__foot {
   display: flex;
@@ -258,9 +258,9 @@
   align-items: start;
 }
 .dossier__h {
-  font-size: clamp(30px, 4vw, 62px);
+  font-size: clamp(38px, 6.4vw, 104px);
   margin: 0 0 clamp(26px, 3vw, 44px);
-  max-width: 16ch;
+  max-width: 13ch;
 }
 .dossier__h em { color: var(--neon); }
 .dossier__body p { color: rgba(237, 234, 227, 0.72); margin: 0 0 18px; }
@@ -334,9 +334,9 @@
   margin-bottom: clamp(46px, 6vw, 84px);
 }
 .chain__h {
-  font-size: clamp(30px, 4.4vw, 68px);
+  font-size: clamp(38px, 6.4vw, 104px);
   margin: 0;
-  max-width: 14ch;
+  max-width: 12ch;
 }
 .chain__h em { color: var(--regolith); }
 .chain__lede p { color: rgba(237, 234, 227, 0.7); margin: 0 0 16px; }
@@ -381,7 +381,7 @@
 .spec__k { color: var(--neon); opacity: 0.75; }
 .spec__label { color: rgba(237, 234, 227, 0.4); }
 .spec__value {
-  font-family: var(--f-display);
+  font-family: var(--f-serif);
   font-size: clamp(26px, 2.6vw, 40px);
   font-weight: 400;
   line-height: 1.05;
@@ -397,7 +397,7 @@
   align-items: end;
   margin-bottom: clamp(40px, 5vw, 70px);
 }
-.legion__h { font-size: clamp(32px, 4.6vw, 74px); margin: 0; }
+.legion__h { font-size: clamp(32px, 4.8vw, 78px); margin: 0; max-width: 14ch; }
 .legion__h em { color: var(--rust); }
 .legion__body p { color: rgba(5, 5, 5, 0.68); margin: 0 0 16px; }
 .legion__meta { color: rgba(5, 5, 5, 0.4) !important; }
@@ -405,8 +405,6 @@
 .legion__sheet { margin-bottom: clamp(40px, 5vw, 70px); }
 .legion .plate__frame { background: #ddd9cf; }
 .legion .plate__ticks span { border-color: rgba(5, 5, 5, 0.5); }
-.legion .plate__cross::before,
-.legion .plate__cross::after { background: rgba(5, 5, 5, 0.55); }
 
 .legion__railwrap { overflow: hidden; padding-left: var(--gut); }
 .legion__rail {
@@ -415,25 +413,17 @@
   width: max-content;
   will-change: transform;
 }
-.legion__card { width: clamp(220px, 24vw, 330px); margin: 0; flex: none; }
-.legion__cardimg { overflow: hidden; background: #ddd9cf; }
-.legion__cardimg img {
+.legion__card {
+  width: clamp(220px, 24vw, 330px);
+  flex: none;
+  overflow: hidden;
+  background: #ddd9cf;
+}
+.legion__card img {
   width: 100%;
   transition: transform 0.9s var(--ease), filter 0.6s;
-  filter: saturate(1.02);
 }
-.legion__card:hover .legion__cardimg img { transform: scale(1.05); filter: saturate(1.18); }
-.legion__card figcaption {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(5, 5, 5, 0.18);
-  margin-top: 10px;
-}
-.legion__card figcaption strong { font-weight: 500; font-size: 15px; }
-.legion__card figcaption span { color: rgba(5, 5, 5, 0.4); font-size: 9.5px; }
+.legion__card:hover img { transform: scale(1.05); filter: saturate(1.16); }
 
 /* ----------------------------------------------------------- MISSION LOG - */
 .log__list { border-top: 1px solid var(--rule); }
@@ -460,7 +450,7 @@
 .log__status--active { color: var(--neon); }
 .log__status--standby { color: var(--regolith); }
 
-.log__title { font-size: clamp(28px, 3.2vw, 48px); margin: 0 0 14px; font-weight: 400; }
+.log__title { font-size: clamp(26px, 2.9vw, 44px); margin: 0 0 14px; }
 .log__body { margin: 0; color: rgba(237, 234, 227, 0.66); }
 
 .log__thumb { overflow: hidden; background: #0d0d0e; }
@@ -555,18 +545,10 @@
 .tx__frame { position: relative; overflow: hidden; background: #0d0d0e; height: 100%; }
 .tx__frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease), filter 0.6s; }
 .tx__cell:hover .tx__frame img { transform: scale(1.05); filter: saturate(1.2) contrast(1.05); }
-.tx__cap {
-  position: absolute;
-  left: 12px; bottom: 12px;
-  padding: 5px 10px;
-  background: rgba(5, 5, 5, 0.7);
-  backdrop-filter: blur(6px);
-  color: rgba(237, 234, 227, 0.7);
-  font-size: 9px;
-}
+
 
 /* ----------------------------------------------------------------- BUY --- */
-.buy__h { font-size: clamp(30px, 4.2vw, 64px); margin: 0 0 clamp(38px, 5vw, 68px); max-width: 18ch; }
+.buy__h { font-size: clamp(36px, 5.6vw, 92px); margin: 0 0 clamp(38px, 5vw, 68px); max-width: 15ch; }
 .buy__h em { color: var(--neon); }
 .buy__grid {
   display: grid;
@@ -604,7 +586,7 @@
   gap: 24px;
   padding: 24px 0;
   text-align: left;
-  font-family: var(--f-display);
+  font-family: var(--f-serif);
   font-size: clamp(20px, 2.2vw, 32px);
   letter-spacing: -0.01em;
   transition: color 0.3s;
@@ -639,9 +621,9 @@
 .footer__inner { position: relative; z-index: 2; }
 
 .footer__line {
-  font-size: clamp(26px, 3.6vw, 56px);
+  font-size: clamp(34px, 5.6vw, 92px);
   margin: 0 0 clamp(48px, 6vw, 90px);
-  max-width: 22ch;
+  max-width: 16ch;
 }
 .footer__line em { color: var(--neon); }
 

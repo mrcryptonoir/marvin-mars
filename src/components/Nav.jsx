@@ -65,7 +65,7 @@ export default function Nav() {
 
       <div className={`nav__sheet ${open ? 'is-open' : ''}`}>
         {ITEMS.map((i) => (
-          <a key={i.href} href={i.href} onClick={() => setOpen(false)} className="serif-display">
+          <a key={i.href} href={i.href} onClick={() => setOpen(false)} className="display">
             {i.label}
           </a>
         ))}

@@ -29,8 +29,8 @@ export default function Supply() {
     <section className="sec sec--bone supply" id="supply">
       <div className="wrap">
         <div className="sec-head">
-          <Reveal className="label label--ink">Chapter V — Payload</Reveal>
-          <Reveal className="sec-head__n" delay={80}>MANIFEST / {TOKEN.ticker}</Reveal>
+          <Reveal className="label label--ink">Chapter V / Payload</Reveal>
+          <Reveal className="sec-head__n" delay={80}>MANIFEST · {TOKEN.ticker}</Reveal>
         </div>
 
         <div className="supply__grid">
@@ -41,7 +41,7 @@ export default function Supply() {
               </p>
             </Reveal>
             <Reveal delay={80} className="supply__cap">
-              <span className="mono">Fixed supply. No mint function. No second launch.</span>
+              <span className="mono">Fixed supply, no mint function.</span>
             </Reveal>
 
             <Reveal delay={120} className="supply__table">
@@ -60,7 +60,7 @@ export default function Supply() {
                 <span className="supply__copy mono">{copied ? 'Copied' : 'Copy'}</span>
               </button>
               <p className="supply__warn mono">
-                Verify the address before you swap. Nobody official will ever DM it to you.
+                Read the address back before you swap. Nobody official will ever DM it to you.
               </p>
             </Reveal>
           </div>
