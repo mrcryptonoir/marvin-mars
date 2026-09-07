@@ -1,10 +1,30 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useScrollPass, lerp, passOut } from '../lib/scroll';
 import { LINKS } from '../data/site';
 
 export default function Hero() {
   const media = useRef(null);
   const body = useRef(null);
+  const clip = useRef(null);
+
+  // Held back until after load so the poster, not the video, is the LCP.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const v = clip.current;
+    if (!v) return;
+    const start = () => {
+      v.src = window.matchMedia('(max-width: 760px)').matches
+        ? '/video/hero-mobile-loop.mp4'
+        : '/video/hero-loop.mp4';
+      const p = v.play();
+      if (p) p.catch(() => {});
+    };
+    const t = setTimeout(start, 900);
+    return () => {
+      clearTimeout(t);
+      v.pause();
+    };
+  }, []);
 
   const ref = useScrollPass((_, rect) => {
     const p = passOut(rect);
@@ -31,6 +51,18 @@ export default function Hero() {
             decoding="sync"
           />
         </picture>
+        {/* The clip starts on the still above, so it can fade in over the top
+            without a jump and without ever delaying the LCP. */}
+        <video
+          ref={clip}
+          className="hero__clip"
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-hidden="true"
+          onPlaying={(e) => e.currentTarget.classList.add('is-live')}
+        />
       </div>
 
       <div className="hero__scrim" />

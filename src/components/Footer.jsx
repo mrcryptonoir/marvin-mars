@@ -1,4 +1,4 @@
-import Img from './ui/Img';
+import Loop from './ui/Loop';
 import Reveal from './ui/Reveal';
 import { LINKS, TOKEN } from '../data/site';
 
@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__bleed">
-        <Img name="footer-bleed" alt="" ratio="21 / 9" />
+        <Loop name="footer-loop" poster="footer-bleed" ratio="21 / 9" alt="" />
         <div className="footer__bleed-scrim" />
       </div>
 

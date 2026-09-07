@@ -31,12 +31,22 @@ npm run build
 npm run preview
 ```
 
+## Motion
+
+`public/video/` holds thirteen six-second loops, generated from the matching
+still with Grok and re-encoded muted, without audio or cover art, at CRF 30.
+`src/components/ui/Loop.jsx` paints the still first and only fetches the clip
+once the element is near the viewport, then pauses it again on the way out, so
+a visitor who never scrolls that far never pays for the file. Reduced-motion
+visitors keep the still.
+
 ## Imagery
 
 Every frame in `public/art/` ships as a pair: `<name>.webp` at 1600w and
 `<name>@sm.webp` at 860w, wired through `src/components/ui/Img.jsx` with a
 `srcSet`. Adding a frame means dropping both files in and referencing the base
-name. The generator scripts and prompts live one level up in `site-art/`.
+name. The generator scripts and prompts live one level up in `site-art/`, alongside
+`encode.sh`, which turns raw Grok clips into the files served here.
 
 ## Before launch
 

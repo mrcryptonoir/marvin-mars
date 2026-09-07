@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import Dossier from './components/Dossier';
+import Mars from './components/Mars';
 import Slab from './components/Slab';
 import Chain from './components/Chain';
 import Legion from './components/Legion';
@@ -73,6 +74,7 @@ export default function App() {
         <Marquee />
         <Dossier />
         <Slab lines={SLAB_A} invert note="FIG. 1 · SUBJECT, COSTUME, VENUE" />
+        <Mars />
         <Chain />
         <Legion />
         <Slab lines={SLAB_B} note="FIG. 2 · SPEC SHEET, SHOUTED" />

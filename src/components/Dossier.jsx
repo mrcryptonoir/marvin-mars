@@ -21,9 +21,10 @@ export default function Dossier() {
             <Reveal delay={90} className="dossier__body measure">
               <p>
                 Marvin is a scruffy black-and-white dog with floppy ears and a bow
-                tie. He belongs to a man who spends his working hours arguing that
-                people should not stay on one planet, which is the only reason
-                anyone outside that house has ever seen a photo of him.
+                tie. He belongs to Elon Musk, who spends his working hours arguing
+                that people should not stay on one planet and has spent twenty
+                years building the rocket to prove it. That is the only reason
+                anyone outside that house has ever seen a photo of the dog.
               </p>
               <p>
                 The internet did the obvious thing and put a helmet on him. Roman,
@@ -33,8 +34,9 @@ export default function Dossier() {
               </p>
               <p>
                 It landed at a useful moment. Robinhood Chain went live for
-                tokenized stocks in July 2026, and a meme on rails people actually
-                use is worth more than a meme on rails nobody does.
+                tokenized stocks in July 2026, three months before the Mars
+                transfer window opened, and a meme on rails people actually use is
+                worth more than a meme on rails nobody does.
               </p>
             </Reveal>
 
@@ -75,6 +77,15 @@ export default function Dossier() {
                 alt="The subject in legionary armour"
                 left="ARCHIVE 002"
                 right="I MARTIA · SOL 001"
+              />
+            </Reveal>
+            <Reveal delay={220}>
+              <Plate
+                name="owner-dog"
+                ratio="3 / 4"
+                alt="The dog's owner crouched down, scratching his ear"
+                left="ARCHIVE 003"
+                right="THE OWNER · EARTH"
               />
             </Reveal>
           </div>

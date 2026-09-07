@@ -3,8 +3,14 @@ import { useScrollPass, lerp } from '../lib/scroll';
 import Reveal from './ui/Reveal';
 import Plate from './ui/Plate';
 import Img from './ui/Img';
+import Loop from './ui/Loop';
 
-const LEGION = ['legion-01', 'legion-02', 'legion-03', 'legion-04'];
+const LEGION = [
+  { img: 'legion-01', loop: 'legion-wall' },
+  { img: 'legion-02' },
+  { img: 'legion-04' },
+  { img: 'transmission-02' },
+];
 
 export default function Legion() {
   const rail = useRef(null);
@@ -19,7 +25,7 @@ export default function Legion() {
     <section className="sec sec--bone legion" id="legion" ref={ref}>
       <div className="wrap">
         <div className="sec-head">
-          <Reveal className="label label--ink">Chapter III / The legion</Reveal>
+          <Reveal className="label label--ink">Chapter IV / The legion</Reveal>
           <Reveal className="sec-head__n" delay={80}>LEGIO I MARTIA · FIELD PLATES</Reveal>
         </div>
 
@@ -56,9 +62,13 @@ export default function Legion() {
 
       <div className="legion__railwrap">
         <div className="legion__rail" ref={rail}>
-          {LEGION.map((img) => (
-            <div className="legion__card" key={img}>
-              <Img name={img} alt="" ratio="3 / 4" />
+          {LEGION.map((c) => (
+            <div className="legion__card" key={c.img}>
+              {c.loop ? (
+                <Loop name={c.loop} poster={c.img} ratio="3 / 4" alt="" />
+              ) : (
+                <Img name={c.img} alt="" ratio="3 / 4" />
+              )}
             </div>
           ))}
         </div>

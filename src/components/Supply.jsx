@@ -29,7 +29,7 @@ export default function Supply() {
     <section className="sec sec--bone supply" id="supply">
       <div className="wrap">
         <div className="sec-head">
-          <Reveal className="label label--ink">Chapter V / Payload</Reveal>
+          <Reveal className="label label--ink">Chapter VI / Payload</Reveal>
           <Reveal className="sec-head__n" delay={80}>MANIFEST · {TOKEN.ticker}</Reveal>
         </div>
 

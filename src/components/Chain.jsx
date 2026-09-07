@@ -7,7 +7,7 @@ export default function Chain() {
     <section className="sec chain" id="chain">
       <div className="wrap">
         <div className="sec-head">
-          <Reveal className="label">Chapter II / The network</Reveal>
+          <Reveal className="label">Chapter III / The network</Reveal>
           <Reveal className="sec-head__n" delay={80}>ROBINHOOD CHAIN · MAINNET</Reveal>
         </div>
 

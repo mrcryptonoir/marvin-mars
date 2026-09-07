@@ -28,6 +28,14 @@ export const TELEMETRY = [
   'PAYLOAD / ONE DOG',
 ];
 
+/* Chapter II. Every figure is SpaceX's or Musk's own, stated in public. */
+export const MARS_FIGURES = [
+  { v: '5', k: 'Starships planned for the window' },
+  { v: 'NOV–DEC', k: '2026 transfer window' },
+  { v: '50/50', k: 'Musk’s own odds of making it' },
+  { v: '$100M', k: 'Per tonne to the surface, from 2028' },
+];
+
 export const CHAIN_SPECS = [
   {
     k: '01',

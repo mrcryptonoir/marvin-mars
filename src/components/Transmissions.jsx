@@ -1,16 +1,23 @@
 import Reveal from './ui/Reveal';
 import Img from './ui/Img';
+import Loop from './ui/Loop';
 
-/* Tall and wide cells alternate in pairs so the four-column wall packs solid. */
+/* Tall and wide cells alternate in pairs so the four-column wall packs solid.
+   Roughly every third cell moves, which reads as a live feed rather than a
+   gallery without asking the visitor to download eight videos. */
 const FRAMES = [
   { img: 'transmission-01', tall: true },
   { img: 'transmission-02', tall: true },
-  { img: 'transmission-04' },
-  { img: 'starship-landing' },
+  { img: 'transmission-04', loop: 'tx-console' },
+  { img: 'starship-landing', loop: 'starship-loop' },
   { img: 'transmission-03', tall: true },
   { img: 'slab-tile-2', tall: true },
-  { img: 'transmission-05' },
+  { img: 'transmission-05', loop: 'tx-rover' },
+  { img: 'robots-marvin' },
+  { img: 'owner-console', loop: 'owner-console-loop' },
+  { img: 'legion-03', tall: true },
   { img: 'transmission-06' },
+  { img: 'plate-archive-alt', tall: true },
 ];
 
 export default function Transmissions() {
@@ -18,7 +25,7 @@ export default function Transmissions() {
     <section className="sec transmissions" id="transmissions">
       <div className="wrap">
         <div className="sec-head">
-          <Reveal className="label">Chapter VI / Transmissions</Reveal>
+          <Reveal className="label">Chapter VII / Transmissions</Reveal>
           <Reveal className="sec-head__n" delay={80}>DOWNLINK · UNSORTED</Reveal>
         </div>
       </div>
@@ -31,7 +38,11 @@ export default function Transmissions() {
             delay={(i % 4) * 70}
           >
             <div className="tx__frame">
-              <Img name={f.img} alt="" />
+              {f.loop ? (
+                <Loop name={f.loop} poster={f.img} alt="" />
+              ) : (
+                <Img name={f.img} alt="" />
+              )}
             </div>
           </Reveal>
         ))}

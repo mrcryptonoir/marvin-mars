@@ -7,7 +7,7 @@ export default function MissionLog() {
     <section className="sec log" id="log">
       <div className="wrap">
         <div className="sec-head">
-          <Reveal className="label">Chapter IV / Mission log</Reveal>
+          <Reveal className="label">Chapter V / Mission log</Reveal>
           <Reveal className="sec-head__n" delay={80}>FLIGHT PLAN · OPEN RECORD</Reveal>
         </div>
 
