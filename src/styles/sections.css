@@ -209,10 +209,11 @@
 }
 .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
+/* Sits above the action row rather than beside it, where it collided. */
 .hero__scroll {
   position: absolute;
   right: var(--gut);
-  bottom: clamp(56px, 8vh, 110px);
+  top: 58%;
   z-index: 4;
   writing-mode: vertical-rl;
   color: rgba(237, 234, 227, 0.35);
