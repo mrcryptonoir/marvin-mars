@@ -120,9 +120,9 @@
 .hero__media { position: absolute; inset: -6% 0 0; will-change: transform; }
 .hero__media img,
 .hero__media picture { width: 100%; height: 112%; object-fit: cover; display: block; }
-/* The subject sits mid-frame in the source; biasing the crop left of centre
-   slides them clear of the display type. */
-.hero__media img { opacity: 0.92; object-position: 22% 46%; }
+/* The subject stands in the right third of the source; hold that side in the
+   crop so they survive the 21:9 -> viewport squeeze. */
+.hero__media img { opacity: 0.95; object-position: 74% 50%; }
 
 .hero__scrim {
   position: absolute;
@@ -738,6 +738,8 @@
   .slabwall__tile { height: clamp(20px, 6vw, 34px); }
   .hero__scroll { display: none; }
   .hero__ret--b { display: none; }
+  /* The portrait frame centres its subject; the desktop bias would crop it out. */
+  .hero__media img { object-position: 50% 62%; }
 }
 
 @media (max-width: 620px) {
