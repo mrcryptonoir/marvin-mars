@@ -1,12 +1,13 @@
 import { useRef } from 'react';
-import { useScrollPass, lerp } from '../lib/scroll';
+import { useScrollPass, lerp, passOut } from '../lib/scroll';
 import { LINKS } from '../data/site';
 
 export default function Hero() {
   const media = useRef(null);
   const body = useRef(null);
 
-  const ref = useScrollPass((p) => {
+  const ref = useScrollPass((_, rect) => {
+    const p = passOut(rect);
     if (media.current) {
       media.current.style.transform = `translate3d(0, ${lerp(p, 0, 14)}%, 0) scale(${lerp(p, 1, 1.12)})`;
     }

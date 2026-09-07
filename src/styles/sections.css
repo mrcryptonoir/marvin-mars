@@ -149,9 +149,9 @@
   position: absolute;
   background: rgba(237, 234, 227, 0.22);
 }
-.hero__ret--l { left: var(--gut); top: 38%; }
+.hero__ret--l { left: var(--gut); top: 30%; }
 .hero__ret--l::before { left: 0; top: -14px; width: 74px; height: 1px; }
-.hero__ret--r { right: var(--gut); top: 38%; }
+.hero__ret--r { right: var(--gut); top: 30%; }
 .hero__ret--r::before { right: 0; top: -14px; width: 74px; height: 1px; }
 .hero__ret--t { left: 50%; top: 96px; transform: translateX(-50%); }
 .hero__ret--t::before { left: 50%; bottom: -22px; width: 1px; height: 46px; }

@@ -80,3 +80,12 @@ export function useScrollPass(apply, enabled = true) {
 
 /** Maps a 0..1 progress onto a numeric range. */
 export const lerp = (p, from, to) => from + (to - from) * p;
+
+/**
+ * Progress for an element pinned at the top of the page: 0 while its top edge
+ * is still at the viewport top, 1 once it has scrolled one full height away.
+ * The default pass-through progress reads 0.5 at scroll zero, which is right
+ * for a section drifting past and wrong for the hero.
+ */
+export const passOut = (rect) =>
+  Math.min(1, Math.max(0, -rect.top / (rect.height || 1)));
