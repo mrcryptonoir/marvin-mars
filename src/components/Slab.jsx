@@ -1,6 +1,21 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import Img from './ui/Img';
+
+/** Drift reads as motion on a wide screen and as clipping on a narrow one. */
+function useDriftAllowed() {
+  const [ok, setOk] = useState(() =>
+    typeof window === 'undefined' ? true : window.innerWidth > 760
+  );
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 761px)');
+    const on = () => setOk(mq.matches);
+    on();
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  return ok;
+}
 
 /**
  * Sadu-style type wall: enormous condensed lines with square media set into the
@@ -9,6 +24,7 @@ import Img from './ui/Img';
 export default function Slab({ lines, invert = false, note, id }) {
   const ref = useRef(null);
   const reduce = useReducedMotion();
+  const drift = useDriftAllowed();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
 
   return (
@@ -19,7 +35,13 @@ export default function Slab({ lines, invert = false, note, id }) {
     >
       <div className="slabwall__inner">
         {lines.map((parts, li) => (
-          <Line key={li} parts={parts} index={li} progress={scrollYProgress} reduce={reduce} />
+          <Line
+            key={li}
+            parts={parts}
+            index={li}
+            progress={scrollYProgress}
+            still={reduce || !drift}
+          />
         ))}
       </div>
       {note && <p className="slabwall__note mono">{note}</p>}
@@ -27,9 +49,9 @@ export default function Slab({ lines, invert = false, note, id }) {
   );
 }
 
-function Line({ parts, index, progress, reduce }) {
+function Line({ parts, index, progress, still }) {
   const dir = index % 2 === 0 ? -1 : 1;
-  const amount = reduce ? 0 : 70 + index * 26;
+  const amount = still ? 0 : 70 + index * 26;
   const x = useTransform(progress, [0, 1], [`${dir * amount}px`, `${-dir * amount}px`]);
 
   return (

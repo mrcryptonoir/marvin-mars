@@ -12,12 +12,21 @@ const ITEMS = [
 export default function Nav() {
   const [lifted, setLifted] = useState(false);
   const [open, setOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setLifted(window.scrollY > 40);
+    const onScroll = () => {
+      setLifted(window.scrollY > 40);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -63,6 +72,10 @@ export default function Nav() {
         <a className="btn btn--neon" href={LINKS.buy} onClick={() => setOpen(false)}>
           Buy $MARVIN
         </a>
+      </div>
+
+      <div className="nav__progress" aria-hidden="true">
+        <span style={{ transform: `scaleX(${progress})` }} />
       </div>
     </header>
   );

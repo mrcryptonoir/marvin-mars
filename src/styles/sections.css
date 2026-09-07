@@ -93,6 +93,21 @@
 .nav__sheet a.serif-display { font-size: clamp(38px, 11vw, 68px); }
 .nav__sheet .btn { align-self: flex-start; margin-top: 26px; }
 
+.nav__progress {
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 1.5px;
+  overflow: hidden;
+}
+.nav__progress span {
+  display: block;
+  height: 100%;
+  background: var(--neon);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  box-shadow: 0 0 10px rgba(204, 255, 0, 0.7);
+}
+
 /* --------------------------------------------------------------- HERO ---- */
 .hero {
   position: relative;
@@ -105,14 +120,16 @@
 .hero__media { position: absolute; inset: -6% 0 0; will-change: transform; }
 .hero__media img,
 .hero__media picture { width: 100%; height: 112%; object-fit: cover; display: block; }
-.hero__media img { opacity: 0.92; object-position: 38% 46%; }
+/* The subject sits mid-frame in the source; biasing the crop left of centre
+   slides them clear of the display type. */
+.hero__media img { opacity: 0.92; object-position: 22% 46%; }
 
 .hero__scrim {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(to top, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.5) 40%, rgba(5,5,5,0.16) 64%, rgba(5,5,5,0.74) 100%),
-    linear-gradient(to right, rgba(5,5,5,0.78) 0%, rgba(5,5,5,0.28) 42%, rgba(5,5,5,0) 70%),
+    linear-gradient(to right, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.3) 28%, rgba(5,5,5,0) 52%),
     radial-gradient(120% 80% at 50% 62%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 100%);
 }
 
@@ -169,8 +186,8 @@
 
 .hero__title {
   margin: 0;
-  font-size: clamp(46px, 9.2vw, 158px);
-  text-shadow: 0 8px 60px rgba(0, 0, 0, 0.7);
+  font-size: clamp(44px, 8.2vw, 136px);
+  text-shadow: 0 8px 60px rgba(0, 0, 0, 0.75);
 }
 .hero__title em { color: var(--bone-2); }
 
@@ -519,16 +536,21 @@
   position: sticky;
   top: 100px;
 }
-.supply__art img { width: 100%; }
+/* Hairline neon on black loses too much against a bone page; lift it. */
+.supply__art img,
+.chain__schematic img { width: 100%; filter: brightness(1.45) saturate(1.15); }
 
 /* ------------------------------------------------------- TRANSMISSIONS --- */
 .tx__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: clamp(150px, 15vw, 250px);
+  grid-auto-flow: row dense;
   gap: clamp(10px, 1.2vw, 20px);
   padding: 0 var(--gut);
 }
-.tx__cell--wide { grid-column: span 2; }
+.tx__cell--wide { grid-column: span 2; grid-row: span 1; }
+.tx__cell--tall { grid-column: span 1; grid-row: span 2; }
 .tx__frame { position: relative; overflow: hidden; background: #0d0d0e; height: 100%; }
 .tx__frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease), filter 0.6s; }
 .tx__cell:hover .tx__frame img { transform: scale(1.05); filter: saturate(1.2) contrast(1.05); }
@@ -640,17 +662,22 @@
 .footer__meta p { margin: 0; color: rgba(237, 234, 227, 0.45); }
 .footer__addr { word-break: break-all; }
 
+/* Bleeds off the bottom edge, behind the legal type. */
 .footer__word {
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -0.16em;
+  z-index: 1;
   font-size: clamp(84px, 25vw, 420px);
   line-height: 0.72;
   text-align: center;
-  color: rgba(237, 234, 227, 0.07);
-  margin-top: clamp(20px, 3vw, 40px);
+  color: rgba(237, 234, 227, 0.06);
   user-select: none;
+  pointer-events: none;
   letter-spacing: -0.02em;
 }
+
+.footer__inner { padding-bottom: clamp(120px, 18vw, 300px); }
 
 .footer__legal {
   position: relative;
@@ -672,7 +699,6 @@
   .chain__grid { grid-template-columns: repeat(2, 1fr); }
   .buy__grid { grid-template-columns: repeat(2, 1fr); }
   .tx__grid { grid-template-columns: repeat(2, 1fr); }
-  .tx__cell--wide { grid-column: span 2; }
   .log__row { grid-template-columns: 150px 1fr 140px; }
 }
 
@@ -702,12 +728,24 @@
   .hero__ret--l, .hero__ret--r { display: none; }
 }
 
+@media (max-width: 760px) {
+  /* No drift on narrow screens, so the wall must fit instead of overflowing. */
+  .slabwall__line {
+    font-size: clamp(22px, 7.2vw, 40px);
+    gap: 8px;
+    padding: 0 12px;
+  }
+  .slabwall__tile { height: clamp(20px, 6vw, 34px); }
+  .hero__scroll { display: none; }
+  .hero__ret--b { display: none; }
+}
+
 @media (max-width: 620px) {
   .chain__grid,
   .buy__grid { grid-template-columns: 1fr; }
   .dossier__stats { grid-template-columns: 1fr; }
-  .tx__grid { grid-template-columns: 1fr; }
-  .tx__cell--wide { grid-column: span 1; }
+  .tx__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 30vw; }
+  .tx__cell--wide { grid-column: span 2; }
   .footer__cols { grid-template-columns: 1fr; }
   .footer__meta { grid-column: span 1; }
   .hero__foot { align-items: flex-start; }

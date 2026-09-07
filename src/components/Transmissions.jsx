@@ -1,15 +1,16 @@
 import Reveal from './ui/Reveal';
 import Img from './ui/Img';
 
+/* Tall and wide cells alternate in pairs so the four-column wall packs solid. */
 const FRAMES = [
-  { img: 'transmission-01', ratio: '3 / 4', cap: 'TX 001 · CABIN', span: 1 },
-  { img: 'transmission-04', ratio: '16 / 9', cap: 'TX 004 · OUTPOST', span: 2 },
-  { img: 'transmission-02', ratio: '3 / 4', cap: 'TX 002 · FLAG' },
-  { img: 'transmission-05', ratio: '16 / 9', cap: 'TX 005 · ROVER', span: 2 },
-  { img: 'transmission-03', ratio: '3 / 4', cap: 'TX 003 · REST' },
-  { img: 'transmission-06', ratio: '16 / 9', cap: 'TX 006 · THE RIM', span: 2 },
-  { img: 'starship-landing', ratio: '16 / 9', cap: 'TX 007 · DESCENT', span: 2 },
-  { img: 'slab-tile-2', ratio: '1 / 1', cap: 'TX 008 · TRACE' },
+  { img: 'transmission-01', tall: true, cap: 'TX 001 · CABIN' },
+  { img: 'transmission-02', tall: true, cap: 'TX 002 · FLAG' },
+  { img: 'transmission-04', cap: 'TX 004 · OUTPOST' },
+  { img: 'starship-landing', cap: 'TX 007 · DESCENT' },
+  { img: 'transmission-03', tall: true, cap: 'TX 003 · REST' },
+  { img: 'slab-tile-2', tall: true, cap: 'TX 008 · TRACE' },
+  { img: 'transmission-05', cap: 'TX 005 · ROVER' },
+  { img: 'transmission-06', cap: 'TX 006 · THE RIM' },
 ];
 
 export default function Transmissions() {
@@ -25,12 +26,12 @@ export default function Transmissions() {
       <div className="tx__grid">
         {FRAMES.map((f, i) => (
           <Reveal
-            className={`tx__cell ${f.span === 2 ? 'tx__cell--wide' : ''}`}
+            className={`tx__cell ${f.tall ? 'tx__cell--tall' : 'tx__cell--wide'}`}
             key={f.img}
-            delay={(i % 3) * 80}
+            delay={(i % 4) * 70}
           >
             <div className="tx__frame">
-              <Img name={f.img} alt={f.cap} ratio={f.ratio} />
+              <Img name={f.img} alt={f.cap} />
               <span className="tx__cap mono">{f.cap}</span>
             </div>
           </Reveal>
