@@ -31,6 +31,21 @@ npm run build
 npm run preview
 ```
 
+## The hero
+
+The hero is a camera deck: a stage showing one feed, a rail of the rest, and an
+on-screen display over the top. `src/data/cameras.js` is the manifest; a camera
+with no `clip` shows its still and the OSD says `STILL` rather than `REC`.
+
+The clock is real. `src/lib/marstime.js` implements Mars Sol Date and
+Coordinated Mars Time from the Mars24 algorithm (Allison & McEwen, NASA GISS),
+so MTC drifts about 40 minutes further from the visitor's clock every day. The
+light delay is computed from circular-orbit longitudes, which lands within a
+few percent, and is labelled approximate on screen for that reason.
+
+Number keys 1-0 jump to a camera, arrows walk past the dead one. Only one video
+element exists for the whole deck; switching changes its source.
+
 ## Motion
 
 `public/video/` holds twenty-seven six-second loops, generated from the matching

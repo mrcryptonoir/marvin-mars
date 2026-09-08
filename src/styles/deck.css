@@ -1,0 +1,291 @@
+/* ==========================================================================
+   Camera deck
+   Same system as the rest of the page: black ground, bone furniture, Robin
+   Neon spent only on the live value and the active camera. The corner ticks
+   are the instrument-plate marks reused at stage scale, so the hero reads as
+   the same instrument as the archive plates further down.
+   ========================================================================== */
+
+.deck {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(10px, 1.4vw, 18px);
+  padding: clamp(84px, 11vh, 130px) var(--gut) clamp(24px, 4vh, 44px);
+  background: var(--void);
+}
+
+.deck__frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+}
+
+.deck__stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  border: 1px solid var(--rule);
+  background: #000;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------- FEED --- */
+.feed { position: absolute; inset: 0; overflow: hidden; }
+.feed__poster,
+.feed__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.feed__video { opacity: 0; transition: opacity 0.5s var(--ease); }
+.feed__video.is-live { opacity: 1; }
+
+/* Graded down and cooled so the type stays readable over any frame. */
+.feed__poster,
+.feed__video { filter: saturate(0.85) contrast(1.14) brightness(0.74); }
+
+/* The IR camera lands on the brand hue rather than a generic nightvision green. */
+.feed--ir .feed__poster,
+.feed--ir .feed__video {
+  filter: grayscale(1) sepia(1) hue-rotate(46deg) saturate(1.9) contrast(1.3) brightness(0.86);
+}
+
+.feed__grade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(5,5,5,0.94) 0%, rgba(5,5,5,0.36) 42%, rgba(5,5,5,0.12) 68%, rgba(5,5,5,0.62) 100%),
+    linear-gradient(to right, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.66) 26%, rgba(5,5,5,0.14) 56%, rgba(5,5,5,0) 74%);
+}
+
+/* Denser than the page-wide scanlines, which keeps the stage reading as a
+   monitor sitting inside the page rather than more of the same surface. */
+.feed__scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0px,
+    rgba(0,0,0,0) 2px,
+    rgba(0,0,0,0.28) 3px,
+    rgba(0,0,0,0) 4px
+  );
+  mix-blend-mode: multiply;
+}
+.feed__vig {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(115% 90% at 50% 50%, rgba(0,0,0,0) 46%, rgba(0,0,0,0.8) 100%);
+}
+
+/* Switching costs a beat, the way a real downlink would. */
+.feed.is-acquiring .feed__poster { filter: saturate(0.25) contrast(1.8) brightness(0.45); }
+.feed.is-acquiring { animation: hsync 0.62s steps(3) 1; }
+@keyframes hsync {
+  0%   { transform: translate3d(0, 0, 0); }
+  30%  { transform: translate3d(-3px, 1px, 0); }
+  65%  { transform: translate3d(2px, -1px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+.feed__acquire {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  padding: 8px 16px;
+  border: 1px solid var(--rule);
+  background: rgba(5, 5, 5, 0.82);
+  color: rgba(237, 234, 227, 0.6);
+  font-size: 9.5px;
+  animation: blink 0.5s steps(2) infinite;
+}
+@keyframes blink { 50% { opacity: 0.3; } }
+
+/* ----------------------------------------------------------------- OSD --- */
+.osd { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.osd > div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+  color: rgba(237, 234, 227, 0.42);
+}
+.osd__tl { top: 18px; left: 20px; }
+.osd__tr { top: 18px; right: 20px; }
+.osd__bl { bottom: 18px; left: 20px; }
+.osd__br { bottom: 18px; right: 20px; }
+.osd__cam { color: rgba(237, 234, 227, 0.72); }
+.osd__sep { opacity: 0.35; margin: 0 8px; }
+
+/* The clock is the only true reading on the page, so it gets the accent. */
+.osd__live { color: var(--neon); }
+
+.osd__rec {
+  width: 6px; height: 6px;
+  background: var(--neon);
+  transform: rotate(45deg);
+  animation: blink 1.6s steps(2) infinite;
+}
+/* A still frame is a real downlink state, so it gets its own mark and holds. */
+.osd__rec--still {
+  background: none;
+  border: 1px solid rgba(237, 234, 227, 0.5);
+  animation: none;
+}
+
+/* The instrument-plate corner marks, at stage scale. */
+.osd__tick {
+  position: absolute;
+  width: 14px; height: 14px;
+  border: 1px solid rgba(237, 234, 227, 0.55);
+}
+.osd__tick--tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.osd__tick--tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
+.osd__tick--bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
+.osd__tick--br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+/* --------------------------------------------------------------- TITLE --- */
+.deck__title {
+  position: absolute;
+  left: clamp(18px, 3.4vw, 54px);
+  bottom: clamp(48px, 8vh, 96px);
+  z-index: 6;
+  max-width: min(92%, 900px);
+}
+.deck__h {
+  margin: 0 0 clamp(14px, 2vw, 24px);
+  font-size: clamp(42px, 8.4vw, 132px);
+  text-shadow: 0 10px 60px rgba(0, 0, 0, 0.85);
+}
+.deck__h em { color: var(--neon); }
+.deck__lede {
+  margin: 0 0 clamp(16px, 2vw, 26px);
+  max-width: 42ch;
+  font-size: clamp(14px, 1.4vw, 17px);
+  color: rgba(237, 234, 227, 0.78);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
+}
+.deck__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ---------------------------------------------------------------- RAIL --- */
+.deck__rail {
+  display: flex;
+  gap: clamp(6px, 0.7vw, 10px);
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  padding-bottom: 2px;
+}
+.deck__rail::-webkit-scrollbar { display: none; }
+
+.thumb {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 88px;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--void-2);
+  scroll-snap-align: center;
+  opacity: 0.62;
+  transition: border-color 0.3s, opacity 0.3s;
+}
+.thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(0.72) contrast(1.08) brightness(0.78);
+  transition: filter 0.4s;
+}
+.thumb--ir img { filter: grayscale(1) sepia(1) hue-rotate(46deg) saturate(1.7) brightness(0.75); }
+.thumb:hover:not(.is-dead) { opacity: 0.9; border-color: rgba(237, 234, 227, 0.4); }
+.thumb:hover:not(.is-dead) img { filter: saturate(0.9) contrast(1.1) brightness(0.86); }
+.thumb.is-on {
+  opacity: 1;
+  border-color: var(--neon);
+}
+.thumb.is-on img { filter: saturate(1) contrast(1.04) brightness(0.94); }
+
+.thumb__id {
+  position: absolute;
+  left: 6px; bottom: 5px;
+  font-size: 8.5px;
+  letter-spacing: 0.16em;
+  color: rgba(237, 234, 227, 0.8);
+  text-shadow: 0 1px 6px #000;
+}
+.thumb.is-on .thumb__id { color: var(--neon); }
+
+.thumb.is-dead { cursor: not-allowed; opacity: 0.28; }
+.thumb.is-dead img { filter: grayscale(1) brightness(0.3) contrast(0.7); }
+.thumb__dead {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7.5px;
+  letter-spacing: 0.18em;
+  color: var(--regolith);
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(237,234,227,0.05) 0 1px,
+    rgba(0,0,0,0) 1px 3px
+  );
+}
+
+.deck__hint {
+  margin: 0;
+  text-align: right;
+  font-size: 9px;
+  color: rgba(237, 234, 227, 0.28);
+}
+
+/* ---------------------------------------------------------- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .deck { padding-top: 76px; gap: 10px; justify-content: flex-start; }
+  /* The pitch is taller than the stage on a phone, so it stops overlaying the
+     feed and stacks under it instead. `display: contents` hands the stage and
+     the title straight to the deck's column, in source order. */
+  .deck__frame { display: contents; }
+  .deck__stage { flex: 0 0 auto; aspect-ratio: 16 / 10; }
+  .deck__title {
+    position: static;
+    max-width: none;
+    padding: 2px 2px 0;
+  }
+  .deck__h { font-size: clamp(34px, 11vw, 60px); }
+  .deck__lede { font-size: 14px; margin-bottom: 16px; }
+  .deck__actions .btn { padding: 11px 18px; font-size: 10px; }
+  .osd > div { font-size: 8px; letter-spacing: 0.16em; }
+  .osd__tl { top: 12px; left: 12px; gap: 7px; }
+  .osd__tr, .osd__bl { display: none; }
+  .osd__br { bottom: 12px; right: 12px; }
+  .osd__tick { width: 10px; height: 10px; }
+  .thumb { flex: 0 0 auto; width: 76px; min-width: 0; }
+  .deck__hint { text-align: left; }
+}
+
+@media (max-width: 620px) {
+  .deck__stage { aspect-ratio: 4 / 5; }
+  .deck__hint { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feed__video { display: none; }
+  .feed.is-acquiring { animation: none; }
+  .osd__rec, .feed__acquire { animation: none; }
+}

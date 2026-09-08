@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 
 import Nav from './components/Nav';
-import Hero from './components/Hero';
+import CameraDeck from './components/CameraDeck';
 import Marquee from './components/Marquee';
 import Dossier from './components/Dossier';
 import Mars from './components/Mars';
@@ -18,6 +18,7 @@ import Footer from './components/Footer';
 
 import './styles/global.css';
 import './styles/sections.css';
+import './styles/deck.css';
 
 const SLAB_A = [
   [{ t: 'A DOG' }, { img: 'slab-tile-1' }, { t: 'IN A' }],
@@ -70,7 +71,7 @@ export default function App() {
       <Nav />
 
       <main>
-        <Hero />
+        <CameraDeck />
         <Marquee />
         <Dossier />
         <Slab lines={SLAB_A} invert note="FIG. 1 · SUBJECT, COSTUME, HEADING" />
