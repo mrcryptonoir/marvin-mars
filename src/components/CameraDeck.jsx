@@ -8,6 +8,7 @@ import {
   solsSince,
 } from '../lib/marstime';
 import { LINKS } from '../data/site';
+import { clipsWanted } from '../lib/motion';
 
 const LAUNCH = '2026-07-01';
 const ACQUIRE_MS = 620;
@@ -81,7 +82,7 @@ export default function CameraDeck() {
   useEffect(() => {
     const v = video.current;
     if (!v || !cam.clip) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!clipsWanted()) return;
     v.src = `${import.meta.env.BASE_URL}video/${cam.clip}.mp4`;
     const p = v.play();
     if (p) p.catch(() => {});
